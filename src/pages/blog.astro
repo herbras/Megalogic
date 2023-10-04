@@ -14,13 +14,13 @@ const offset = 7 * 60 * 60 * 1000;
 const publishedBlogEntries = allEntries.filter(({ data }) => {
   return (
     !data.draft &&
-    new Date(data.publishDate).getTime() < new Date().getTime()
-
+    new Date(data.publishDate).getTime() <= new Date().getTime()
   );
 });
 
 console.log("Filtered Entries:", publishedBlogEntries);
 
+// Sort entri berdasarkan tanggal publikasi
 publishedBlogEntries.sort((a, b) => {
   return (
     new Date(b.data.publishDate).getTime() -
@@ -33,7 +33,6 @@ allEntries.forEach(entry => {
   console.log("Publish Date:", entry.data.publishDate);
   console.log("Calculated Publish Date:", new Date(entry.data.publishDate).getTime() + offset);
 });
-
 ---
 
 <Layout title="Blog">
