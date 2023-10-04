@@ -14,7 +14,7 @@ const offset = 7 * 60 * 60 * 1000;
 const publishedBlogEntries = allEntries.filter(({ data }) => {
   return (
     !data.draft &&
-    new Date(data.publishDate).getTime() + offset < new Date().getTime()
+    new Date(data.publishDate).getTime() < new Date().getTime()
 
   );
 });
